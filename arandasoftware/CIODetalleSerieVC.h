@@ -18,18 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblActors;
 @property (weak, nonatomic) IBOutlet UILabel *lblEpisodios;
 
-
-
-
 @property (weak, nonatomic) IBOutlet UITableView *listCapitulos;
-
-
-
-- (IBAction)episodioUno:(id)sender;
-- (IBAction)episodioDos:(id)sender;
-- (IBAction)episodioTres:(id)sender;
-
-
-
-
 @end

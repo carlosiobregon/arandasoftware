@@ -28,7 +28,7 @@
     self.title = @"Detalle";
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.label.text = @"Cargando...";
+    //self.hud.label.text = @"Cargando...";
     
     self.apiRequest = [Api sharedInstance];
     
@@ -76,7 +76,7 @@
             }
             
         
-            CGRect myFrame = CGRectMake(5.0f, self.lblEpisodios.frame.origin.y + 26, self.view.bounds.size.width - 10.0f, 40.0f);
+            CGRect myFrame = CGRectMake(10.0f, self.lblEpisodios.frame.origin.y + 26, self.view.bounds.size.width - 15.0f, 40.0f);
             self.mySegmentedControl = [[UISegmentedControl alloc] initWithItems:self.seasons];
             self.mySegmentedControl.frame = myFrame;
             [self.mySegmentedControl addTarget:self
@@ -100,7 +100,7 @@
             }
             
             //Cargar Capitulo por defecto de episodios
-            [self.apiRequest downloadSeasonTvShow:[self.serie objectForKey:@"id"] season:0 success:^(BOOL success, id response) {
+            [self.apiRequest downloadSeasonTvShow:[self.serie objectForKey:@"id"] season:@"1" success:^(BOOL success, id response) {
                 if (success) {
                     //Cargar table con los titulos de los capitulos
                     NSArray *capitulos = [response objectForKey:@"episodes"];
