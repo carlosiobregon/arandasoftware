@@ -76,7 +76,7 @@
             }
             
         
-            CGRect myFrame = CGRectMake(5.0f, self.lblEpisodios.frame.origin.y + 30, self.view.bounds.size.width - 5, 40.0f);
+            CGRect myFrame = CGRectMake(5.0f, self.lblEpisodios.frame.origin.y + 26, self.view.bounds.size.width - 5, 40.0f);
             self.mySegmentedControl = [[UISegmentedControl alloc] initWithItems:self.seasons];
             self.mySegmentedControl.frame = myFrame;
             [self.mySegmentedControl addTarget:self

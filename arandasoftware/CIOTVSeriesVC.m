@@ -108,43 +108,50 @@
 }
 
 -(void)addInfiniteScrollHandler{
+    
+
+    
     [self.seriesCV addInfiniteScrollWithHandler:^(UICollectionView *collectionView) {
         //descargar nuevos datos
         self.page++;
-        [self.apiRequest downloadSearchTvShows:self.searchWord page:[NSString stringWithFormat:@"%d",self.page] success:^(BOOL success, id response) {
-            if (success) {
-                self.page = [[response objectForKey:@"page"] intValue];
-                self.totalPages = [[response objectForKey:@"total_pages"] intValue];
-                int totalResults = [[response objectForKey:@"total_results"] intValue];
-                NSArray *results = [response objectForKey:@"results"];
-                
-                
-                if (totalResults > 0) {
+        if (self.page < self.totalPages && self.searchWord != nil) {
+            [self.apiRequest downloadSearchTvShows:self.searchWord page:[NSString stringWithFormat:@"%d",self.page] success:^(BOOL success, id response) {
+                if (success) {
+                    self.page = [[response objectForKey:@"page"] intValue];
+                    self.totalPages = [[response objectForKey:@"total_pages"] intValue];
+                    int totalResults = [[response objectForKey:@"total_results"] intValue];
+                    NSArray *results = [response objectForKey:@"results"];
                     
                     
-                    NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-                    NSInteger index = self.series.count;
-                    
-                    for(NSDictionary *dic in results) {
-                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index++ inSection:0];
+                    if (totalResults > 0) {
                         
-                        [self.series addObject:dic];
-                        [indexPaths addObject:indexPath];
+                        
+                        NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+                        NSInteger index = self.series.count;
+                        
+                        for(NSDictionary *dic in results) {
+                            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index++ inSection:0];
+                            
+                            [self.series addObject:dic];
+                            [indexPaths addObject:indexPath];
+                        }
+
+                        [self.seriesCV performBatchUpdates:^{
+                            [self.seriesCV insertItemsAtIndexPaths:indexPaths];
+                        } completion:^(__unused BOOL finished) {
+                            [collectionView finishInfiniteScroll];
+                        }];
+                        
                     }
-                    //
-                    //                    //    self.modifiedAt = modifiedAt;
-                    //
-                    [self.seriesCV performBatchUpdates:^{
-                        [self.seriesCV insertItemsAtIndexPaths:indexPaths];
-                    } completion:^(__unused BOOL finished) {
-                        [collectionView finishInfiniteScroll];
-                    }];
-                    
                 }
-            }
-        }];
-        
+            }];
+        }
+        else{
+            [collectionView finishInfiniteScroll];
+        }
     }];
+        
+    
     
 }
 
