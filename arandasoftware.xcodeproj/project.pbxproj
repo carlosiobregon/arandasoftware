@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		37ECD30AD4D975363282E436 /* libPods-arandasoftware.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4153B04E472B08B24905E29 /* libPods-arandasoftware.a */; };
+		525833871D344D7400AD16B7 /* iPadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 525833861D344D7400AD16B7 /* iPadCollectionViewCell.xib */; };
+		5258338A1D344ECC00AD16B7 /* iPadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525833891D344ECC00AD16B7 /* iPadCollectionViewCell.m */; };
+		5258338E1D34551400AD16B7 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5258338C1D34551400AD16B7 /* CustomNavigationController.m */; };
 		525CE87B1D30CA02001FB75C /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 525CE87A1D30CA02001FB75C /* Api.m */; };
 		528705D71D33661100071A3C /* CacheImgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 528705D61D33661100071A3C /* CacheImgs.m */; };
 		528705DC1D33670A00071A3C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 528705DB1D33670A00071A3C /* MBProgressHUD.m */; };
@@ -27,6 +30,12 @@
 
 /* Begin PBXFileReference section */
 		4CB0D542337BEDBF01429832 /* Pods-arandasoftware.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arandasoftware.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arandasoftware/Pods-arandasoftware.debug.xcconfig"; sourceTree = "<group>"; };
+		525833861D344D7400AD16B7 /* iPadCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadCollectionViewCell.xib; sourceTree = "<group>"; };
+		525833881D344ECC00AD16B7 /* iPadCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadCollectionViewCell.h; sourceTree = "<group>"; };
+		525833891D344ECC00AD16B7 /* iPadCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadCollectionViewCell.m; sourceTree = "<group>"; };
+		5258338B1D34525700AD16B7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		5258338C1D34551400AD16B7 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		5258338D1D34551400AD16B7 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
 		525CE8791D30CA02001FB75C /* Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		525CE87A1D30CA02001FB75C /* Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
 		528705D51D33661100071A3C /* CacheImgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheImgs.h; sourceTree = "<group>"; };
@@ -113,9 +122,12 @@
 				52F0B8611D29BC3B00BC4F4C /* LaunchScreen.storyboard */,
 				52F0B85C1D29BC3B00BC4F4C /* Main.storyboard */,
 				52BA5D891D33EC7400930DEB /* iPadMain.storyboard */,
-				52D9BBEE1D2E2898000D0222 /* CollectionViewCell.m */,
-				52D9BBEF1D2E2898000D0222 /* CollectionViewCell.h */,
 				52D9BBF31D2E2A26000D0222 /* CollectionViewCell.xib */,
+				52D9BBEF1D2E2898000D0222 /* CollectionViewCell.h */,
+				52D9BBEE1D2E2898000D0222 /* CollectionViewCell.m */,
+				525833861D344D7400AD16B7 /* iPadCollectionViewCell.xib */,
+				525833881D344ECC00AD16B7 /* iPadCollectionViewCell.h */,
+				525833891D344ECC00AD16B7 /* iPadCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -154,14 +166,14 @@
 			children = (
 				52F0B8561D29BC3B00BC4F4C /* AppDelegate.h */,
 				52F0B8571D29BC3B00BC4F4C /* AppDelegate.m */,
+				5258338D1D34551400AD16B7 /* CustomNavigationController.h */,
+				5258338C1D34551400AD16B7 /* CustomNavigationController.m */,
 				528705E41D33B48F00071A3C /* InfiniteScroll */,
 				528705DD1D3371E500071A3C /* Hud */,
 				528705D81D33667F00071A3C /* PeticionesApi */,
 				528705D91D33669700071A3C /* Cache */,
 				52D9BBF11D2E28BE000D0222 /* View */,
 				52D9BBF21D2E28D8000D0222 /* Controllers */,
-				52F0B85F1D29BC3B00BC4F4C /* Assets.xcassets */,
-				52F0B8641D29BC3B00BC4F4C /* Info.plist */,
 				52F0B8531D29BC3B00BC4F4C /* Supporting Files */,
 			);
 			path = arandasoftware;
@@ -170,6 +182,9 @@
 		52F0B8531D29BC3B00BC4F4C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52F0B85F1D29BC3B00BC4F4C /* Assets.xcassets */,
+				52F0B8641D29BC3B00BC4F4C /* Info.plist */,
+				5258338B1D34525700AD16B7 /* Constant.h */,
 				52F0B8541D29BC3B00BC4F4C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -254,6 +269,7 @@
 			files = (
 				52F0B8631D29BC3B00BC4F4C /* LaunchScreen.storyboard in Resources */,
 				52F0B8601D29BC3B00BC4F4C /* Assets.xcassets in Resources */,
+				525833871D344D7400AD16B7 /* iPadCollectionViewCell.xib in Resources */,
 				52BA5D8A1D33EC7400930DEB /* iPadMain.storyboard in Resources */,
 				52D9BBF41D2E2A26000D0222 /* CollectionViewCell.xib in Resources */,
 				52F0B85E1D29BC3B00BC4F4C /* Main.storyboard in Resources */,
@@ -321,9 +337,11 @@
 				528705D71D33661100071A3C /* CacheImgs.m in Sources */,
 				52F0B8551D29BC3B00BC4F4C /* main.m in Sources */,
 				52D9BBF01D2E2898000D0222 /* CollectionViewCell.m in Sources */,
+				5258338A1D344ECC00AD16B7 /* iPadCollectionViewCell.m in Sources */,
 				528705E01D33834A00071A3C /* CIODetalleSerieVC.m in Sources */,
 				52D9BBF71D2E2FE6000D0222 /* CIOTVSeriesVC.m in Sources */,
 				528705DC1D33670A00071A3C /* MBProgressHUD.m in Sources */,
+				5258338E1D34551400AD16B7 /* CustomNavigationController.m in Sources */,
 				528705E31D33B47E00071A3C /* UIScrollView+InfiniteScroll.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

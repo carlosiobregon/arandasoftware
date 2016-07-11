@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Constant.h"
+#import "CIOTVSeriesVC.h"
+#import "CustomNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +20,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIDevice *device = [UIDevice currentDevice];
+    
+    
+    CIOTVSeriesVC *tvSeriesVC;
+    UIStoryboard *storyboard;
+    if ([[device model] isEqualToString:DEVICE_IPHONE]) {
+         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        tvSeriesVC = [storyboard instantiateViewControllerWithIdentifier:@"seriesVC"];
+    }
+    else if([[device model] isEqualToString:DEVICE_IPAD])
+    {
+         storyboard = [UIStoryboard storyboardWithName:@"iPadMain" bundle:nil];
+        tvSeriesVC = [storyboard instantiateViewControllerWithIdentifier:@"iPadSeriesVC"];
+    }
+    
+    CustomNavigationController *navCustomController =
+    [[CustomNavigationController alloc] initWithRootViewController:tvSeriesVC];
+
+    
+    self.window.rootViewController = navCustomController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

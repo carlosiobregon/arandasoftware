@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblEpisodios;
 
 @property (weak, nonatomic) IBOutlet UITableView *listCapitulos;
+@property (weak, nonatomic) IBOutlet UIImageView *imgSerie;
 @end

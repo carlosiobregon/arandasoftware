@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 #import "UIScrollView+InfiniteScroll.h"
 #import "CustomInfiniteIndicator.h"
+#import "Constant.h"
 #import "CacheImgs.h"
 #import "Api.h"
 
@@ -212,10 +213,22 @@
     
     NSDictionary *serie = [self.series objectAtIndex:indexPath.row];
     
-    CIODetalleSerieVC *detalleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleSerieVC"];
-    detalleVC.serie = serie;
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:DEVICE_IPHONE]) {
+        CIODetalleSerieVC *detalleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleSerieVC"];
+        detalleVC.serie = serie;
+        
+        [self.navigationController pushViewController:detalleVC animated:YES];
+    }
+    else {
+        CIODetalleSerieVC *detalleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"iPadDetalleSerieVC"];
+        detalleVC.serie = serie;
+        
+        [self.navigationController pushViewController:detalleVC animated:YES];
+    }
     
-    [self.navigationController pushViewController:detalleVC animated:YES];
+    
+    
     
 }
 

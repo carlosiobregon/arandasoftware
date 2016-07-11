@@ -9,6 +9,7 @@
 #import "CIODetalleSerieVC.h"
 #import "MBProgressHUD.h"
 #import "CacheImgs.h"
+#import "Constant.h"
 #import "Api.h"
 
 @interface CIODetalleSerieVC ()
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *seasons;
 @property (nonatomic, strong) NSMutableArray *generos;
 @property (nonatomic, strong) NSMutableArray *actores;
+@property (nonatomic, strong) NSCache *cache;
 @end
 
 @implementation CIODetalleSerieVC
@@ -31,6 +33,12 @@
     //self.hud.label.text = @"Cargando...";
     
     self.apiRequest = [Api sharedInstance];
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:DEVICE_IPAD]) {
+       
+    }
+
+    self.cache = [CacheImgs sharedInstance];
     
     self.caps  = [NSMutableArray array];
     self.seasons  = [NSMutableArray array];
