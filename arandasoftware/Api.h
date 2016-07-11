@@ -14,6 +14,7 @@ typedef void(^ResponseBlock)(BOOL success,id response);
 
 -(void)downloadTvShows:(NSDictionary *)parameters success:(ResponseBlock)success;
 -(void)downloadSearchTvShows:(NSString *)textSearch success:(ResponseBlock)success;
+-(void)downloadSearchTvShows:(NSString *)textSearch page:(NSString *)page success:(ResponseBlock)success;
 -(void)downloadDetailTvShow:(NSString *)idSerie success:(ResponseBlock)success;
 -(void)downloadCharactersTvShow:(NSString *)idSerie success:(ResponseBlock)success;
 -(void)downloadSeasonTvShow:(NSString *)idSerie season:(NSString *)season success:(ResponseBlock)success;

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSCache *cache;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic) int page,totalPages, totalResults;
+@property (nonatomic, strong) NSString *searchWord;
 @end
 
 @implementation CIOTVSeriesVC
@@ -102,13 +103,48 @@
     self.seriesCV.infiniteScrollIndicatorMargin = 40;
     
     // Add infinite scroll handler
+    [self addInfiniteScrollHandler];
+    
+}
+
+-(void)addInfiniteScrollHandler{
     [self.seriesCV addInfiniteScrollWithHandler:^(UICollectionView *collectionView) {
-//        [weakSelf fetchData:^{
-//            // Finish infinite scroll animations
-//            [collectionView finishInfiniteScroll];
-//        }];
+        //descargar nuevos datos
+        self.page++;
+        [self.apiRequest downloadSearchTvShows:self.searchWord page:[NSString stringWithFormat:@"%d",self.page] success:^(BOOL success, id response) {
+            if (success) {
+                self.page = [[response objectForKey:@"page"] intValue];
+                self.totalPages = [[response objectForKey:@"total_pages"] intValue];
+                int totalResults = [[response objectForKey:@"total_results"] intValue];
+                NSArray *results = [response objectForKey:@"results"];
+                
+                
+                if (totalResults > 0) {
+                    
+                    
+                    NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+                    NSInteger index = self.series.count;
+                    
+                    for(NSDictionary *dic in results) {
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index++ inSection:0];
+                        
+                        [self.series addObject:dic];
+                        [indexPaths addObject:indexPath];
+                    }
+                    //
+                    //                    //    self.modifiedAt = modifiedAt;
+                    //
+                    [self.seriesCV performBatchUpdates:^{
+                        [self.seriesCV insertItemsAtIndexPaths:indexPaths];
+                    } completion:^(__unused BOOL finished) {
+                        [collectionView finishInfiniteScroll];
+                    }];
+                    
+                }
+            }
+        }];
+        
     }];
-    //
     
 }
 
@@ -184,6 +220,7 @@
         
         NSString *textSearch =
         [self.tfBusqueda.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        self.searchWord = textSearch;
         
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.label.text = @"Buscando...";
@@ -194,11 +231,10 @@
                 //Descarga Exitosa
                 NSLog(@"%@",response);
                 
-                int page = [[response objectForKey:@"page"] intValue];
-                int totalPages = [[response objectForKey:@"total_pages"] intValue];
+                self.page = [[response objectForKey:@"page"] intValue];
+                self.totalPages = [[response objectForKey:@"total_pages"] intValue];
                 int totalResults = [[response objectForKey:@"total_results"] intValue];
                 NSArray *results = [response objectForKey:@"results"];
-                NSLog(@"%d%d%d", page, totalPages, totalResults);
                 
                 
                 if (totalResults > 0) {

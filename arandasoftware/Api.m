@@ -65,6 +65,11 @@ NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
     
     [self getRequest:endpoint succes:success];
 }
+-(void)downloadSearchTvShows:(NSString *)textSearch page:(NSString *)page success:(ResponseBlock)success{
+    NSString *endpoint = [NSString stringWithFormat:@"%@%@query=%@&page=%@&%@",urlBase,@"3/search/tv?",textSearch, page,apiKey];
+    
+    [self getRequest:endpoint succes:success];
+}
 -(void)downloadDetailTvShow:(NSString *)idSerie success:(ResponseBlock)success{
     //http://api.themoviedb.org/3/tv/32125?api_key=2ea5adc47456e674399d947d032e74e5
     NSString *endpoint = [NSString stringWithFormat:@"%@%@%@?%@",urlBase,@"3/tv/",idSerie, apiKey];

@@ -14,6 +14,7 @@
 		528705E01D33834A00071A3C /* CIODetalleSerieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 528705DF1D33834A00071A3C /* CIODetalleSerieVC.m */; };
 		528705E31D33B47E00071A3C /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 528705E21D33B47E00071A3C /* UIScrollView+InfiniteScroll.m */; };
 		528705E71D33B54100071A3C /* CustomInfiniteIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 528705E51D33B54100071A3C /* CustomInfiniteIndicator.m */; };
+		52BA5D8A1D33EC7400930DEB /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52BA5D891D33EC7400930DEB /* iPadMain.storyboard */; };
 		52D9BBF01D2E2898000D0222 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D9BBEE1D2E2898000D0222 /* CollectionViewCell.m */; };
 		52D9BBF41D2E2A26000D0222 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D9BBF31D2E2A26000D0222 /* CollectionViewCell.xib */; };
 		52D9BBF71D2E2FE6000D0222 /* CIOTVSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D9BBF61D2E2FE6000D0222 /* CIOTVSeriesVC.m */; };
@@ -38,6 +39,7 @@
 		528705E21D33B47E00071A3C /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
 		528705E51D33B54100071A3C /* CustomInfiniteIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfiniteIndicator.m; sourceTree = "<group>"; };
 		528705E61D33B54100071A3C /* CustomInfiniteIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfiniteIndicator.h; sourceTree = "<group>"; };
+		52BA5D891D33EC7400930DEB /* iPadMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		52D9BBEE1D2E2898000D0222 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		52D9BBEF1D2E2898000D0222 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		52D9BBF31D2E2A26000D0222 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				52F0B8611D29BC3B00BC4F4C /* LaunchScreen.storyboard */,
 				52F0B85C1D29BC3B00BC4F4C /* Main.storyboard */,
+				52BA5D891D33EC7400930DEB /* iPadMain.storyboard */,
 				52D9BBEE1D2E2898000D0222 /* CollectionViewCell.m */,
 				52D9BBEF1D2E2898000D0222 /* CollectionViewCell.h */,
 				52D9BBF31D2E2A26000D0222 /* CollectionViewCell.xib */,
@@ -251,6 +254,7 @@
 			files = (
 				52F0B8631D29BC3B00BC4F4C /* LaunchScreen.storyboard in Resources */,
 				52F0B8601D29BC3B00BC4F4C /* Assets.xcassets in Resources */,
+				52BA5D8A1D33EC7400930DEB /* iPadMain.storyboard in Resources */,
 				52D9BBF41D2E2A26000D0222 /* CollectionViewCell.xib in Resources */,
 				52F0B85E1D29BC3B00BC4F4C /* Main.storyboard in Resources */,
 			);
