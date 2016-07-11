@@ -71,12 +71,12 @@
             long seasons = [[response objectForKey:@"number_of_seasons"] longValue];
             NSLog(@"%ld", seasons);
             
-            for (int i = 1; i <= 6; i++) {
+            for (int i = 1; i <= seasons; i++) {
                 [self.seasons addObject:[NSString stringWithFormat:@"%d", i]];
             }
             
         
-            CGRect myFrame = CGRectMake(5.0f, self.lblEpisodios.frame.origin.y + 26, self.view.bounds.size.width - 5, 40.0f);
+            CGRect myFrame = CGRectMake(5.0f, self.lblEpisodios.frame.origin.y + 26, self.view.bounds.size.width - 10.0f, 40.0f);
             self.mySegmentedControl = [[UISegmentedControl alloc] initWithItems:self.seasons];
             self.mySegmentedControl.frame = myFrame;
             [self.mySegmentedControl addTarget:self
