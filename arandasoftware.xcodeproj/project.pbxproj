@@ -78,6 +78,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5258338F1D34671100AD16B7 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				5258338D1D34551400AD16B7 /* CustomNavigationController.h */,
+				5258338C1D34551400AD16B7 /* CustomNavigationController.m */,
+			);
+			name = CustomClass;
+			sourceTree = "<group>";
+		};
+		525833901D34673000AD16B7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				528705D91D33669700071A3C /* Cache */,
+				5258338F1D34671100AD16B7 /* CustomClass */,
+				528705E41D33B48F00071A3C /* InfiniteScroll */,
+				528705DD1D3371E500071A3C /* Hud */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		528705D81D33667F00071A3C /* PeticionesApi */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,14 +186,10 @@
 			children = (
 				52F0B8561D29BC3B00BC4F4C /* AppDelegate.h */,
 				52F0B8571D29BC3B00BC4F4C /* AppDelegate.m */,
-				5258338D1D34551400AD16B7 /* CustomNavigationController.h */,
-				5258338C1D34551400AD16B7 /* CustomNavigationController.m */,
-				528705E41D33B48F00071A3C /* InfiniteScroll */,
-				528705DD1D3371E500071A3C /* Hud */,
-				528705D81D33667F00071A3C /* PeticionesApi */,
-				528705D91D33669700071A3C /* Cache */,
 				52D9BBF11D2E28BE000D0222 /* View */,
 				52D9BBF21D2E28D8000D0222 /* Controllers */,
+				528705D81D33667F00071A3C /* PeticionesApi */,
+				525833901D34673000AD16B7 /* Utilities */,
 				52F0B8531D29BC3B00BC4F4C /* Supporting Files */,
 			);
 			path = arandasoftware;

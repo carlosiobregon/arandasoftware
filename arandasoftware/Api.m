@@ -6,7 +6,6 @@
 #import "Api.h"
 #import "CacheImgs.h"
 
-
 NSString *const urlBase = @"http://api.themoviedb.org/";
 NSString *const urlBaseResources = @"http://image.tmdb.org/t/p/w500";
 NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
@@ -32,8 +31,7 @@ NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
     [self getRequest:endpoint succes:success];
     //[self postRequest:endpoint parameters:parameters success:success];
 }
-
-- (void)downloadPhotoFromURL:(NSURL *)URL completion:(void(^)(NSURL *URL, UIImage *image))completion {
+-(void)downloadPhotoFromURL:(NSURL *)URL completion:(void(^)(NSURL *URL, UIImage *image))completion {
     static dispatch_queue_t downloadQueue;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -59,7 +57,6 @@ NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
         }
     });
 }
-
 -(void)downloadSearchTvShows:(NSString *)textSearch success:(ResponseBlock)success{
     NSString *endpoint = [NSString stringWithFormat:@"%@%@query=%@&%@",urlBase,@"3/search/tv?",textSearch, apiKey];
     
@@ -71,21 +68,16 @@ NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
     [self getRequest:endpoint succes:success];
 }
 -(void)downloadDetailTvShow:(NSString *)idSerie success:(ResponseBlock)success{
-    //http://api.themoviedb.org/3/tv/32125?api_key=2ea5adc47456e674399d947d032e74e5
     NSString *endpoint = [NSString stringWithFormat:@"%@%@%@?%@",urlBase,@"3/tv/",idSerie, apiKey];
     
     [self getRequest:endpoint succes:success];
 }
-
 -(void)downloadCharactersTvShow:(NSString *)idSerie success:(ResponseBlock)success{
-    //http://api.themoviedb.org/3/tv/38585/credits?api_key=2ea5adc47456e674399d947d032e74e5
     NSString *endpoint = [NSString stringWithFormat:@"%@%@%@/credits?%@",urlBase,@"3/tv/",idSerie, apiKey];
     
     [self getRequest:endpoint succes:success];
 }
-
 -(void)downloadSeasonTvShow:(NSString *)idSerie season:(NSString *)season success:(ResponseBlock)success{
-    //http://api.themoviedb.org/3/tv/32125/season/0?api_key=2ea5adc47456e674399d947d032e74e5
     NSString *endpoint = [NSString stringWithFormat:@"%@%@%@/season/%@?%@",urlBase,@"3/tv/",idSerie, season,apiKey];
     
     [self getRequest:endpoint succes:success];
@@ -105,7 +97,6 @@ NSString *const apiKey = @"api_key=2ea5adc47456e674399d947d032e74e5";
        }];
 
 }
-
 -(void)postRequest:(NSString *)endpoint parameters:(NSDictionary *)parameters success:(ResponseBlock)success {
     
     self.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];

@@ -10,6 +10,7 @@
 
 @interface CIODetalleSerieVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityLoad;
 @property (nonatomic, strong) NSDictionary *serie;
 @property (nonatomic, strong) UISegmentedControl *mySegmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
